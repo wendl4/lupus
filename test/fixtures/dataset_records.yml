@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Dataset: one
+  external_identifier: MyString
+  external_url: MyString
+  data: MyText
+
+two:
+  Dataset: two
+  external_identifier: MyString
+  external_url: MyString
+  data: MyText

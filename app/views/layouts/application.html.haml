@@ -1,0 +1,26 @@
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title= "Lupus Demo"
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all'
+  %body
+    .loader
+      .loader_inner
+
+    .header-container
+      = render 'shared/header'
+
+    .mobile-block
+
+    .content-container
+      = yield
+
+    = javascript_include_tag 'application'
+
+    .footer-container.navbar-fixed-bottom
+      = render 'shared/footer'
+
+
+
+

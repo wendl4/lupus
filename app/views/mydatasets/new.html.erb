@@ -1,0 +1,14 @@
+<section>
+	<div class="container">
+		<h1>Pridať dataset</h1>
+		<p>
+		Pridajte dataset vo forme csv a ten sa automaticky uloží do našej databázy.
+		</p>
+		<%= form_tag({:action => :import}, {:method => :post,multipart: true}) do %>
+		  <%= label_tag(:name, "Meno datasetu:") %>
+		  <%= text_field_tag(:name) %>
+		  <%= file_field_tag "file" %>
+		  <%= submit_tag( "Import", {class: "btn btn-primary btn-lg"} ) %>
+		<% end %>
+	</div>
+</section>

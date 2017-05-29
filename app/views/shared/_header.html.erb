@@ -1,0 +1,83 @@
+<div id="header" class="sticky clearfix">
+
+  <!-- TOP NAV -->
+  <header id="topNav">
+    <div class="container">
+
+      <!-- Mobile Menu Button -->
+      <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+        <i class="fa fa-bars"></i>
+      </button>
+
+      <!-- Logo -->
+      <a class="logo pull-left" href="/">
+        <%= image_tag('logo-1.png') %> 
+        <span style="margin-left: 20px; font-weight: bold;font-size: 15px; color:black;">LUPUS</span>
+      </a>
+
+      <!--
+        Top Nav
+
+        AVAILABLE CLASSES:
+        submenu-dark = dark sub menu
+      -->
+      <div class="navbar-collapse pull-right nav-main-collapse collapse">
+        <nav class="nav-main">
+
+          <!--
+            .nav-onepage
+            Required for onepage navigation links
+
+            Add .external for an external link!
+          -->
+          <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+            <li><!-- HOME -->
+              <a href="/">
+                Domov
+              </a>
+            </li>
+            <li><!-- FEATURES -->
+              <a href="/mydataset">
+                Moje Datasety
+              </a>
+            </li>
+            <li><!-- PRICING -->
+              <a href="/dataset">
+                Vyhľadávanie
+              </a>
+            </li>
+            <li><!-- EXPERIMENTY -->
+              <a href="/experiments">
+                Experimenty
+              </a>
+            </li>
+            <li><!-- TOP -->
+              <a href="/top">
+                TOP 10
+              </a>
+            </li>
+            <li><!-- STATISTIKY -->
+              <a href="/experiments/1">
+                Štatistiky
+              </a>
+            </li>
+            <li><!-- O NAS -->
+              <a href="/about-us">
+                  O stránke
+              </a>
+            </li>
+            <li><!-- LOGIN -->
+              <a class="external" href="/login">
+                Login
+              </a>
+            </li>
+          </ul>
+
+        </nav>
+      </div>
+
+    </div>
+  </header>
+  <!-- /Top Nav -->
+
+</div>

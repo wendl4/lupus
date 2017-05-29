@@ -1,0 +1,32 @@
+<section>
+	<div class="container">
+		<h1>Pridať dataset</h1>
+		<p>
+		Pridajte dataset vo forme csv a ten sa automaticky uloží do našej databázy.
+		</p>
+		<%= form_tag({:action => :add_columns}, {:method => :post,multipart: true}) do %>
+		<div class="table-responsive">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Meno z CSV</th>
+						<th>Typ</th>
+						<th>Meno zobrazené na stránke</th>
+					</tr>
+				</thead>
+				<tbody>
+			        <% @keys.each do |key| %>
+			        <tr>
+				       <td><%=  key %> </td>
+				       <td><%= select_tag( "type[#{key}]", options_for_select([['Znakov reťazec','String'],['celé číslo','Integer'],['desatinné číslo','Double'],['Dátum','Date']])) %></td>
+				       <td><%= text_field_tag("title[#{key}]",nil,placeholder: "meno stlpca") %> </td>
+				    </tr>
+				    <% end %>
+				    <%= hidden_field_tag 'dataset_id', @dataset_id  %>
+				</tbody>
+			</table>
+			<%= submit_tag( "Pridaj", {class: "btn btn-primary btn-lg"} ) %>
+		<% end %>
+		</div>
+	</div>
+</section>

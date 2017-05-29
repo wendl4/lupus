@@ -1,0 +1,158 @@
+<section class="page-header page-header-xs">
+	<div class="container">
+
+		<h1>Príklad firmy</h1>
+
+	</div>
+</section>
+<!-- /PAGE HEADER -->
+
+
+
+<!-- -->
+<section>
+	<div class="container">
+
+		<h4>Príklad firmy</h4>
+
+		<div class="table-responsive">
+			<table class="table table-bordered text-center table-vertical-middle">
+				<tbody>
+					<tr>
+						<td class= "first-item">Názov</td>
+						<td>Firma príklad</td>
+					</tr>
+					<tr>
+						<td class= "first-item">Ulica</td>
+						<td>Javorová 4</td>
+					</tr>
+					<tr>
+						<td class= "first-item">Mesto</td>
+						<td>Leopoldov</td>
+					</tr>
+					<tr>
+						<td class= "first-item">Dátum vzniku</td>
+						<td>12.9.1999</td>
+					</tr>
+					<tr>
+						<td class= "first-item">Dátum zániku</td>
+						<td>12.9.1999</td>
+					</tr>
+					<tr>
+						<td class= "first-item">IČO</td>
+						<td>84685289</td>
+					</tr>
+					<tr>
+						<td class= "first-item">Právna forma</td>
+						<td>Verejná obchodná spoločnosť</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="row">
+			<div class="col-md-5">
+			<h5> Zdielať </h5>
+				<div>
+					<a href="#" class="pull-left social-icon social-facebook" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook" aria-describedby="tooltip765158">
+						<i class="icon-facebook"></i>
+						<i class="icon-facebook"></i>
+					</a>
+					<a href="#" class="pull-left social-icon social-twitter" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter" aria-describedby="tooltip365073">
+						<i class="icon-twitter"></i>
+						<i class="icon-twitter"></i>
+					</a>
+					<a href="#" class="pull-left social-icon social-gplus" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google+" aria-describedby="tooltip311856">
+						<i class="icon-gplus"></i>
+						<i class="icon-gplus"></i>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-3 text-center">
+			<h5 style="margin-bottom: 0px !important"> Ohodnotiť záznam </h5>
+				<div class="stars">
+					<form action="">
+						<input class="star star-5" id="star-5" type="radio" name="star"/>
+						<label class="star star-5" for="star-5"></label>
+						<input class="star star-4" id="star-4" type="radio" name="star"/>
+						<label class="star star-4" for="star-4"></label>
+						<input class="star star-3" id="star-3" type="radio" name="star"/>
+						<label class="star star-3" for="star-3"></label>
+						<input class="star star-2" id="star-2" type="radio" name="star"/>
+						<label class="star star-2" for="star-2"></label>
+						<input class="star star-1" id="star-1" type="radio" name="star"/>
+						<label class="star star-1" for="star-1"></label>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div id="comments" class="comments">
+
+					<h4 class="page-header margin-bottom-60 size-20">
+						<span>1</span> Komentár
+					</h4>
+
+					<!-- comment item -->
+					<div class="comment-item">
+
+						<!-- user-avatar -->
+						<span class="user-avatar">
+
+						<%=image_tag("avatar.png", class: "pull-left media-object", size: "64")%>
+						</span>
+
+						<div class="media-body">
+							<a href="#commentForm" class="scrollTo comment-reply">odpoveď</a>
+							<h4 class="media-heading bold">John Doe</h4>
+							<small class="block">Jún 29, 2016 - 11:23</small>
+							Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+						</div>
+					</div>
+
+					<h4 class="page-header size-20 margin-bottom-60 margin-top-100">
+						 <span>KOMENTOVAŤ</span>
+					</h4>
+
+					<form action="#" method="post">
+
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-6">
+									<label>MENO</label>
+									<input required="required" type="text" value="" maxlength="100" class="form-control input-lg" name="author" id="author">
+								</div>
+								<div class="col-md-6">
+									<label>EMAIL</label>
+									<input required="required" type="email" value="" maxlength="100" class="form-control input-lg" name="contact_email" id="contact_email">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-12">
+									<label>KOMENTÁR</label>
+									<textarea required="required" maxlength="5000" rows="5" class="form-control" name="comment" id="comment"></textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+
+								<button class="btn btn-3d btn-lg btn-reveal btn-black">
+									<i class="fa fa-check"></i>
+									<span>ODOSLAŤ</span>
+								</button>
+
+							</div>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
