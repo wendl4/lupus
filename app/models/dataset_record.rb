@@ -1,3 +1,5 @@
+require 'elasticsearch/model'
 class DatasetRecord < ApplicationRecord
- # belongs_to :dataset
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 end

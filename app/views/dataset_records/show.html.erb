@@ -1,0 +1,40 @@
+<section>
+	<div class="container">
+		<div class="table-responsive col-md-offset-2 col-md-8 text-center">
+		 <h1> Record id: <%= @record_id %> </h1>
+			<table class="table table-bordered text-center table-vertical-middle">
+				<thead>
+					<tr>
+						<th style="text-align: center !important" class="width-30">Názov atribútu</th>
+						<th style="text-align: center !important">Hodnota</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @record.each do |key, value|  %>
+						<tr>
+							<td>
+								<% title = DatasetField.find_by_dataset_id_and_field_name(@dataset_id,key).title %>
+								<% if title.length == 0 %>
+									<%= key %>
+								<% else %>
+									<%= title %>
+								<% end %>
+							</td>
+							<td>
+								<%= value %>
+							</td>
+						</tr>
+					<% end %>
+					<tr>
+						<td>
+							Meno datasetu
+						</td>
+						<td>
+							<%= Dataset.find_by_id(@dataset_id).name %>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>

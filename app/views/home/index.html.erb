@@ -79,13 +79,13 @@
 							<p class="lead font-lato size-30 wow fadeInUp" data-wow-delay="0.7s">Získajte verejné informácie o konkretných firmách</p>
 							
 							<div class="margin-top-60 margin-bottom-60">
-								<form action="#" role="form" method="post">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-circle-o"></i></span>
-										<input type="email" id="email" name="email" class="form-control required" placeholder="Názov firmy">
-									</div>
-								</form>
-								<a href="dataset" class="btn btn-3d btn-lg btn-red">Vyhľadať</a>
+								<%= form_for :term, :url => {:action => "index", :controller => "search"},  method: :get do |form| %>
+								  <div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-circle-o"></i></span>
+								    <%= text_field_tag :term, params[:term], class: "form-control required", placeholder:"Názov firmy" %>
+								  </div>
+								    <%= submit_tag "Vyhľadať", class: "btn btn-3d btn-lg btn-red", name: nil %>
+								<% end %>
 							</div>
 
 						</div>

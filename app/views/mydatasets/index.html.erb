@@ -28,96 +28,34 @@
 						<th style="text-align: center !important" class="width-30">ID</th>
 						<th style="text-align: center !important">Nazov</th>
 						<th style="text-align: center !important">Hodnotenia</th>
-						<th style="text-align: center !important">Veľkosť</th>
 						<th style="text-align: center !important">Upraviť</th>
 						<th style="text-align: center !important">Odstrániť</th>
 					</tr>
 				</thead>
 				<tbody>
+				<% @datasets.each do |dataset| %>
 					<tr>
-						<td class="text-center">1.</td>
-						<td>Register adries</td>
-						<td><div class="rating rating-0 size-13 width-100"><!-- rating-0 ... rating-5 --></div></td>
 						<td>
-							<div class="margin-bottom-0">
-								12.3 MB
-							</div>
+							<%= dataset.id %>
 						</td>
 						<td>
-							<span class="label label-warning">Uprav</span>
+							<%= dataset.name %>
 						</td>
-						<td><span class="label label-danger">Vymaž</span></td>
+						<td>
+							<div class="rating rating-3 size-13 width-100"></div>
+						</td>
+						<td>
+							<%= link_to  action: "edit", id: dataset.id do %>
+								<span class="label label-warning">Uprav</span>
+							<% end %>
+						</td>
+						<td>
+							<%= link_to  action: "delete", id: dataset.id do %>
+								<span class="label label-danger">Vymaž</span>
+							<% end %>
+						</td>
 					</tr>
-					<tr>
-						<td class="text-center">2.</td>
-						<td>Register štátnych hospodárskych zariadení</td>
-						<td><div class="rating rating-0 size-13 width-100"><!-- rating-0 ... rating-5 --></div></td>
-						<td>
-							<div class="margin-bottom-0">
-								12.3 MB
-							</div>
-						</td>
-						<td>
-							<span class="label label-warning">Uprav</span>
-						</td>
-						<td><span class="label label-danger">Vymaž</span></td>
-					</tr>
-					<tr>
-						<td class="text-center">3.</td>
-						<td>Register motorových vozidiel</td>
-						<td><div class="rating rating-0 size-13 width-100"><!-- rating-0 ... rating-5 --></div></td>
-						<td>
-							<div class="margin-bottom-0">
-								12.3 MB
-							</div>
-						</td>
-						<td>
-							<span class="label label-warning">Uprav</span>
-						</td>
-						<td><span class="label label-danger">Vymaž</span></td>
-					</tr>
-					<tr>
-						<td class="text-center">4.</td>
-						<td>Register verejných obstarávaní</td>
-						<td><div class="rating rating-0 size-13 width-100"><!-- rating-0 ... rating-5 --></div></td>
-						<td>
-							<div class="margin-bottom-0">
-								12.3 MB
-							</div>
-						</td>
-						<td>
-							<span class="label label-warning">Uprav</span>
-						</td>
-						<td><span class="label label-danger">Vymaž</span></td>
-					</tr>
-					<tr>
-						<td class="text-center">5.</td>
-						<td>Register osôb</td>
-						<td><div class="rating rating-0 size-13 width-100"><!-- rating-0 ... rating-5 --></div></td>
-						<td>
-							<div class="margin-bottom-0">
-								1.5 MB
-							</div>
-						</td>
-						<td>
-							<span class="label label-warning">Uprav</span>
-						</td>
-						<td><span class="label label-danger">Vymaž</span></td>
-					</tr>
-					<tr>
-						<td class="text-center">6.</td>
-						<td>Nemocnice v Bratislavskom kraji</td>
-						<td><div class="rating rating-0 size-13 width-100"><!-- rating-0 ... rating-5 --></div></td>
-						<td>
-							<div class="margin-bottom-0">
-								8.4 MB
-							</div>
-						</td>
-						<td>
-							<span class="label label-warning">Uprav</span>
-						</td>
-						<td><span class="label label-danger">Vymaž</span></td>
-					</tr>
+				<% end %>
 				</tbody>
 			</table>
 			<%= button_to "Pridať nový", {action: "new"}, {class: "btn btn-primary btn-lg", method: "get"} %>

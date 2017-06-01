@@ -2,14 +2,24 @@ Rails.application.routes.draw do
 
 
 
+
+
  	root 'home#index'
 
+
+    resources :dataset_records, path: 'dataset'
+    get 'dataset_records/index'
+    get 'search/index'
+    get 'home/search' => 'search#index', as: :home_search
 	get 'login' => 'static#login', as: :login
 	get 'mydataset' => 'mydatasets#index', as: :mydataset
 	get 'mydataset/new' => 'mydatasets#new', as: :new_mydataset
+	get 'mydataset/edit' => 'mydatasets#edit', as: :edit_mydataset
+	get 'mydataset/delete' => 'mydatasets#delete', as: :delete_mydataset
 	post 'mydataset/import' => 'mydatasets#import', as: :import_mydataset
 	post 'mydataset/add_columns' => 'mydatasets#add_columns', as: :add_columns_mydataset
-	get 'dataset' => 'static#dataset', as: :dataset
+	post 'mydataset/edit_columns' => 'mydatasets#edit_columns', as: :edit_columns_mydataset
+	get 'search' => 'search#index', as: :search
 	get 'mydataset/1' => 'static#example', as: :example
 	get 'mydataset/1/1' => 'static#organization_example', as: :organization_example
 	get 'top' => 'static#top', as: :top

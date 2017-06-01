@@ -1,0 +1,62 @@
+
+<section class="page-header page-header-xs">
+	<div class="container">
+
+		<h1>Vyhľadávanie</h1>
+
+	</div>
+</section>
+<!-- /PAGE HEADER -->
+
+
+
+<!-- -->
+<section>
+	<div class="container">
+
+		<h4> Všetky datasety</h4>
+
+		<div class="margin-top-60 margin-bottom-100">
+			<%= form_for :term,  method: :get do |form| %>
+			  <div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-circle-o"></i></span>
+			    <%= text_field_tag :term, params[:term], class: "form-control required", placeholder:"Názov firmy" %>
+			  </div>
+			    <%= submit_tag "Vyhľadať", class: "btn btn-primary btn-lg btn-block", name: nil %>
+			<% end %>
+		</div>
+		<% if not params[:term].nil? %>
+		<div class="table-responsive">
+			<table class="table table-bordered text-center table-vertical-middle">
+				<thead>
+					<tr>
+						<th style="text-align: center !important" class="width-30">ID</th>
+						<th style="text-align: center !important">Názov datasetu</th>
+						<th style="text-align: center !important">Hodnotenia</th>
+						<th style="text-align: center !important">Dátum pridania</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @results.each do |result|  %>
+						<tr>
+							<td>
+								<% record_id = result.to_hash["_source"]["id"] %>							
+								<b><%= link_to record_id, controller: "dataset_records", action: "show", id: record_id %></b>
+							</td>
+							<td>
+								<%= Dataset.find_by(id: result.to_hash["_source"]["dataset_id"]).name %>
+							</td>
+							<td>
+								<div class="rating rating-3 size-13 width-100"></div>
+							</td>
+							<td>
+								<%= result.to_hash["_source"]["created_at"].to_date.strftime("%d. %m. %Y") %>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<% end %>
+	</div>
+</section>
