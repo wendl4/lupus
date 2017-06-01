@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502085802) do
+ActiveRecord::Schema.define(version: 20170601101909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "record_id"
+    t.text     "text"
+    t.string   "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "dataset_fields", force: :cascade do |t|
     t.integer  "dataset_id"
@@ -37,6 +45,14 @@ ActiveRecord::Schema.define(version: 20170502085802) do
 
   create_table "datasets", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rates", force: :cascade do |t|
+    t.integer  "record_id"
+    t.integer  "dataset_id"
+    t.integer  "rate_value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

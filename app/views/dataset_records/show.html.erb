@@ -27,6 +27,14 @@
 					<% end %>
 					<tr>
 						<td>
+							Hodnotenia
+						</td>
+						<td>
+							<div class='rating rating-<%= @rating %> size-13 width-100'></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
 							Meno datasetu
 						</td>
 						<td>
@@ -35,6 +43,83 @@
 					</tr>
 				</tbody>
 			</table>
+
+
+			<div class="col-md-3 text-center">
+			<h5 style="margin-bottom: 0px !important"> Ohodnotiť záznam </h5>
+				<div class="stars">
+					<%= form_tag({:action => :add_rating}, {:method => :get}) do %>
+						<input class="star star-5" id="star-5" type="radio" value ="5" name="star"/>
+						<label class="star star-5" for="star-5"></label>
+						<input class="star star-4" id="star-4" type="radio" value ="4" name="star"/>
+						<label class="star star-4" for="star-4"></label>
+						<input class="star star-3" id="star-3" type="radio" value ="3" name="star"/>
+						<label class="star star-3" for="star-3"></label>
+						<input class="star star-2" id="star-2" type="radio" value ="2" name="star"/>
+						<label class="star star-2" for="star-2"></label>
+						<input class="star star-1" id="star-1" type="radio" value ="1" name="star"/>
+						<label class="star star-1" for="star-1"></label>
+						<%= hidden_field_tag 'record_id', @record_id  %>
+						<%= hidden_field_tag 'dataset_id', @dataset_id  %>
+						<%= submit_tag( "Ohodnoť", {class: "btn btn-primary btn-lg"} ) %>
+					<% end %>
+				</div>
+			</div>
+
+			<div class="row">
+			<div class="col-md-12">
+				<div id="comments" class="comments">
+
+					<h4 class="page-header margin-bottom-60 size-20">
+						 Komentáre
+					</h4>
+
+					<!-- comment item -->
+					<% @comments.each do |comment| %>
+						<div class="comment-item">
+							<div class="media-body">
+								<h4 class="media-heading bold"><%= comment.author %></h4>
+								<small class="block"><%= comment.created_at.to_date.strftime("%d. %m. %Y") %></small>
+								<%= comment.text %>
+							</div>
+						</div>
+					<% end %>
+
+					<h4 class="page-header size-20 margin-bottom-60 margin-top-100">
+						 <span>KOMENTOVAŤ</span>
+					</h4>
+
+					<%= form_tag({:action => :add_comment}, {:method => :get}) do %>
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-offset-3 col-md-6">
+									<label>MENO</label>
+									<input required="required" type="text" value="" maxlength="100" class="form-control input-lg" name="author" id="author">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-12">
+									<label>KOMENTÁR</label>
+									<textarea required="required" maxlength="5000" rows="5" class="form-control" name="text" id="comment"></textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+
+								<%= hidden_field_tag 'record_id', @record_id  %>
+								<%= submit_tag( "ODOSLAŤ", {class: "btn btn-3d btn-lg btn-reveal btn-black"} ) %>
+							</div>
+						</div>
+
+					<% end %>
+				</div>
+			</div>
+		</div>
 		</div>
 	</div>
 </section>

@@ -20,7 +20,7 @@
 			<%= form_for :term,  method: :get do |form| %>
 			  <div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-circle-o"></i></span>
-			    <%= text_field_tag :term, params[:term], class: "form-control required", placeholder:"Názov firmy" %>
+			    <%= text_field_tag :term, params[:term], class: "form-control required", placeholder:"Názov firmy, osoby, organizácie..." %>
 			  </div>
 			    <%= submit_tag "Vyhľadať", class: "btn btn-primary btn-lg btn-block", name: nil %>
 			<% end %>
@@ -40,14 +40,15 @@
 					<% @results.each do |result|  %>
 						<tr>
 							<td>
-								<% record_id = result.to_hash["_source"]["id"] %>							
+								<% record_id = result.to_hash["_source"]["id"] %>	
+								<% record = DatasetRecord.find_by_id(record_id) %>						
 								<b><%= link_to record_id, controller: "dataset_records", action: "show", id: record_id %></b>
 							</td>
 							<td>
 								<%= Dataset.find_by(id: result.to_hash["_source"]["dataset_id"]).name %>
 							</td>
 							<td>
-								<div class="rating rating-3 size-13 width-100"></div>
+								<div class="rating rating-<%= record.showRating %> size-13 width-100"></div>
 							</td>
 							<td>
 								<%= result.to_hash["_source"]["created_at"].to_date.strftime("%d. %m. %Y") %>

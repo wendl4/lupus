@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
     resources :dataset_records, path: 'dataset'
     get 'dataset_records/index'
+    get 'dataset_records/add_rating' => 'dataset_records#add_rating', as: :add_rating
+    get 'dataset_records/add_comment' => 'dataset_records#add_comment', as: :add_comment
     get 'search/index'
     get 'home/search' => 'search#index', as: :home_search
 	get 'login' => 'static#login', as: :login

@@ -42,7 +42,7 @@
 							<%= dataset.name %>
 						</td>
 						<td>
-							<div class="rating rating-3 size-13 width-100"></div>
+							<div class="rating rating-<%= dataset.showRating %> size-13 width-100"></div>
 						</td>
 						<td>
 							<%= link_to  action: "edit", id: dataset.id do %>
