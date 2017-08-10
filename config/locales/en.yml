@@ -21,3 +21,11 @@
 
 en:
   hello: "Hello world"
+  errors:
+    attributes:
+      password:
+        too_short: '- heslo je príliš krátke'
+      email:
+        invalid: ' - nesprávne zadaný email'
+      username: 
+        taken: '- používatel už existuje'

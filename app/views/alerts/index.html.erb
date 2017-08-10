@@ -1,0 +1,56 @@
+<section class="page-header page-header-xs">
+	<div class="container">
+
+		<h1>Pripomienky od používateľov</h1>
+
+		<!-- page tabs -->
+		<ul class="page-header-tabs list-inline">
+			<li class="active"><a href="#">Všetky pripomienky</a></li>
+		</ul><!-- /page tabs -->
+
+	</div>
+</section>
+<!-- /PAGE HEADER -->
+
+
+
+<!-- -->
+<section>
+	<div class="container">
+
+		<h4> Pripomienky od používateľov</h4>
+		<div class="table-responsive">
+			<table class="table table-bordered text-center table-vertical-middle">
+				<thead>
+					<tr>
+						<th style="text-align: center !important" class="width-30">ID</th>
+						<th style="text-align: center !important">Meno</th>
+						<th style="text-align: center !important">ID záznamu</th>
+						<th style="text-align: center !important">Detail</th>
+					</tr>
+				</thead>
+				<tbody>
+				<% @alerts.each do |alert| %>
+					<tr>
+						<td>
+							<%= alert.id %>
+						</td>
+						<td>
+							<% user = User.find(alert.user_id) %>
+							<%= user.username %>
+						</td>
+						<td>
+							<%= alert.record_id %>
+						</td>
+						<td>
+							<%= link_to  action: "show", id: alert.id do %>
+								<span class="label label-warning">Zobraz</span>
+							<% end %>
+						</td>
+					</tr>
+				<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>

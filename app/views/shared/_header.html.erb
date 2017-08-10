@@ -23,7 +23,6 @@
       -->
       <div class="navbar-collapse pull-right nav-main-collapse collapse">
         <nav class="nav-main">
-
           <!--
             .nav-onepage
             Required for onepage navigation links
@@ -36,11 +35,6 @@
                 Domov
               </a>
             </li>
-            <li><!-- DATASETY -->
-              <a href="/mydataset">
-                Datasety
-              </a>
-            </li>
             <li><!-- SEARCH -->
               <a href="/search">
                 Vyhľadávanie
@@ -51,6 +45,34 @@
                   O stránke
               </a>
             </li>
+            <% if session[:is_admin] == 'yes' %>
+              <li>
+                <a href="/alerts/index">
+                  Pripomienky
+                </a>
+              </li>
+            <% end %>
+            <% if session[:user_id].nil? %>
+              <li><!-- LOGIN -->
+                <a href="/login">
+                    Login
+                </a>
+              </li>
+            <% else %>
+              <li><!-- DATASETY -->
+                <a href="/mydataset">
+                  Datasety
+                </a>
+              </li>
+              <li>
+                <%= link_to "Logout", :logout %>
+              </li>
+              <li>
+                <a href="/user" style="font-weight: bold; color: #8ab933;">
+                  <%= session[:username] %>
+                </a>
+              </li>
+            <% end %>
           </ul>
 
         </nav>

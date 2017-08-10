@@ -1,0 +1,55 @@
+
+<section>
+    <div class="container">
+
+        <div class="row nomargin">
+            
+            <div class="col-md-8 col-sm-8">
+
+                <!-- Subtitle -->
+                <div class="heading-title heading-border">
+                    <h2>Pripomienka <span>ID: <%= @alert.id %></span></h2>
+
+                </div>
+                <!-- /Subtitle -->
+
+                <p>
+                    <%= @alert.text %>
+                </p>
+
+                <div class="col-md-2  text-center" style="margin-top: 32px;">
+                    <div class="btn btn-primary btn-lg">
+                        <%= link_to 'Schváliť', '../approve?id='+@alert.id.to_s, {style: "color: white"} %> 
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-offset-1 text-center" style="margin-top: 32px;">
+                    <div class="btn btn-danger btn-lg">
+                        <%= link_to 'Neschváliť', '../decline?id='+@alert.id.to_s, {style: "color: white"} %> 
+                    </div>
+                </div>
+            
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+            
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        
+                        <p class="font-lato size-18">Detaily Pripomienky</p>
+
+                        <ul class="portfolio-detail-list list-unstyled nomargin">
+                            <li><span><i class="fa fa-user"></i>Autor:</span> <%= @alerting_user.username %></li>
+                            <li><span><i class="fa fa-pencil-square-o"></i>Názov datasetu</span> <%= @dataset.name %></li>
+                            <li><span><i class="fa fa-lightbulb-o"></i>ID záznamu:</span> <%= @alert.record_id %></li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>

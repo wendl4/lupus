@@ -8,12 +8,23 @@ Rails.application.routes.draw do
 
 
     resources :dataset_records, path: 'dataset'
+    resources :alerts, path: 'alerts/show'
+    get 'alerts/index' => 'alerts#index', as: :index_alert
+    get 'alerts/new' => 'alerts#new', as: :create_alert
+    get 'alerts/approve' => 'alerts#approve', as: :approve_alert
+    get 'alerts/decline' => 'alerts#decline', as: :decline_alert
+    post 'add_alert' => 'alerts#add_alert'
     get 'dataset_records/index'
     get 'dataset_records/add_rating' => 'dataset_records#add_rating', as: :add_rating
     get 'dataset_records/add_comment' => 'dataset_records#add_comment', as: :add_comment
     get 'search/index'
     get 'home/search' => 'search#index', as: :home_search
-	get 'login' => 'static#login', as: :login
+    get 'login' => 'sessions#login', as: :login
+    get 'logout' => 'sessions#logout', as: :logout
+    post 'login_attempt' => 'sessions#login_attempt', as: :login_attempt
+    get 'user' => 'users#index', as: :user_index
+	get 'sign-up' => 'users#new', as: :sign_up
+	post 'create' => 'users#create', as: :create_user
 	get 'mydataset' => 'mydatasets#index', as: :mydataset
 	get 'mydataset/new' => 'mydatasets#new', as: :new_mydataset
 	get 'mydataset/edit' => 'mydatasets#edit', as: :edit_mydataset

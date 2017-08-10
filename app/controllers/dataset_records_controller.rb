@@ -20,12 +20,19 @@ class DatasetRecordsController < ApplicationController
   	rate.dataset_id = dataset_id
   	rate.rate_value = stars
   	rate.save
+    dataset = Dataset.find(dataset_id)
+    dataset.rating = dataset.rating.nil? ? 0 : dataset.rating
+    dataset.rating_count = dataset.rating_count.nil? ? 0 : dataset.rating_count
+    temp = dataset.rating * dataset.rating_count
+    dataset.rating_count = dataset.rating_count + 1
+    dataset.rating = (temp + stars.to_i) / dataset.rating_count
+    dataset.save
   	redirect_to action: "show", id: params["record_id"]
   end
 
   def add_comment
     record_id = params["record_id"]
-    author = params["author"]
+    author = session[:username]
     text = params["text"]
     comment = Comment.new()
     comment.author = author

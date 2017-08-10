@@ -2,9 +2,14 @@ require 'csv'
 require 'json'
 
 class MydatasetsController < ApplicationController
+	before_filter :authenticate_user 
 
 	def index
-		@datasets = Dataset.all
+		if session[:is_admin] == 'yes'
+			@datasets = Dataset.all
+		else
+			@datasets = Dataset.where(:user_id => session[:user_id])
+		end
 	end
 
 	def new
@@ -35,7 +40,7 @@ class MydatasetsController < ApplicationController
 		if  params.has_key?("file")
 			csv_text = params["file"].read.force_encoding("UTF-8")
 			csv = CSV.parse(csv_text, :headers => true)
-			dataset = Dataset.new(name: params["name"])
+			dataset = Dataset.new(name: params["name"], user_id: session[:user_id])
 			dataset.save
 			@dataset_id = dataset.id
 			first = true

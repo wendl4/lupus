@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601101909) do
+ActiveRecord::Schema.define(version: 20170806182428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alerts", force: :cascade do |t|
+    t.string   "user_id"
+    t.text     "text"
+    t.integer  "record_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "record_id"
@@ -45,8 +53,11 @@ ActiveRecord::Schema.define(version: 20170601101909) do
 
   create_table "datasets", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "rating"
+    t.integer  "rating_count"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "rates", force: :cascade do |t|
@@ -55,6 +66,17 @@ ActiveRecord::Schema.define(version: 20170601101909) do
     t.integer  "rate_value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "admin"
+    t.string   "encrypted_password"
+    t.string   "salt"
+    t.integer  "reliability"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_foreign_key "dataset_fields", "datasets"
