@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem "haml"
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'bonsai-elasticsearch-rails'
 
 gem 'bcrypt-ruby', :require => 'bcrypt' 
 
