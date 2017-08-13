@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user].permit(:username,:email,:password))
+    @user.reliability = 0
     if @user.save
       flash[:notice] = "Úspešne ste sa zaregistrovali"
       flash[:color]= "valid"

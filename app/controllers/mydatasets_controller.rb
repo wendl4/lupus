@@ -41,6 +41,13 @@ class MydatasetsController < ApplicationController
 			csv_text = params["file"].read.force_encoding("UTF-8")
 			csv = CSV.parse(csv_text, :headers => true)
 			dataset = Dataset.new(name: params["name"], user_id: session[:user_id])
+			user = User.find(session[:user_id])
+			if user.reliability.nil?
+				user.reliability = 1
+			else
+				user.reliability += 1
+			end
+			user.save
 			dataset.save
 			@dataset_id = dataset.id
 			first = true

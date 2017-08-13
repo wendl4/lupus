@@ -36,6 +36,7 @@ Rails.application.routes.draw do
 	get 'mydataset/1' => 'static#example', as: :example
 	get 'mydataset/1/1' => 'static#organization_example', as: :organization_example
 	get 'top' => 'static#top', as: :top
+	get 'top10' => 'static#top10', as: :top10
 	get 'experiments' => 'static#experiments', as: :experiments
 	get 'experiments/1' => 'static#experiments_example', as: :experiments_example
 	get 'stats' => 'static#stats', as: :stats
