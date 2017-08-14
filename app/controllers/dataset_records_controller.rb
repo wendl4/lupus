@@ -7,6 +7,8 @@ class DatasetRecordsController < ApplicationController
   	@record_id = params[:id]
   	@record = JSON.parse(rec.data)
   	@dataset_id = rec.dataset_id
+    dataset = Dataset.find(@dataset_id)
+    @user = User.find(dataset.user_id)
   	@rating = rec.showRating
     @comments = Comment.where(:record_id => @record_id)
   end
